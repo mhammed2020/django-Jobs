@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d6c7bf-57e7-4b5a-87e8-c30811caf357" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/job/froms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/job/templates/job/add_job.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/job/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job/froms.py" beforeDir="false" afterPath="$PROJECT_DIR$/job/froms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/job/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job/templates/job/jobDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/job/templates/job/jobDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/job/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/job/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
