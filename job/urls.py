@@ -3,5 +3,5 @@ from  . import views
 app_name="job"
 urlpatterns = [
 path('',views.jobList),
-path('<int:id>/',views.jobDetail,name="jobDetail"),
+path('<str:slug>/',views.jobDetail,name="jobDetail"),
 ]
