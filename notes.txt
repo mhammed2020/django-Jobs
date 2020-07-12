@@ -1,0 +1,21 @@
+
+Websites generally need to serve additional files such as images, JavaScript, or CSS. In Django, we refer to these files as “static files”. Django provides django.contrib.staticfiles to help you manage them.
+
+This page describes how you can serve these static files.
+
+
+STATIC_URL = '/static/'
+///add this ligne of code in setting.py
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+]
+///add this ligne of code in urls.py(project)
+
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('jobs/', include('job.urls'))
+]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
