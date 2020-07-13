@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
 {% load static %}
 
 {% block body %}
@@ -24,13 +26,15 @@
                 <div class="job_filter white-bg">
                     <div class="form_inner white-bg">
                         <h3>Filter</h3>
-                        <form action="#">
+                        <form method="GET">
+                                {% bootstrap_form myfilter.form %}
+
+<!--                            {{myfilter.form.as_p}}-->
+                            <input type="submit" value="Search" class="boxed-btn3 w-100 mt-3">
                         </form>
                     </div>
-             
-                    <div class="reset_btn">
-                        <button class="boxed-btn3 w-100" type="submit">Reset</button>
-                    </div>
+
+
                 </div>
             </div>
             <div class="col-lg-9">

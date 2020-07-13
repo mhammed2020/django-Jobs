@@ -2,60 +2,68 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from  .models import  Job
+from .models import Job
 
 from django.core.paginator import Paginator
 
-from  . froms import ApplyForm,JobForm
+from .filters import JobFilter
+from .forms import ApplyForm, JobForm
+
+
 # Create your views here.
 def jobList(request):
-    jobList = Job.objects.all() # fetch data ==> model queryset
+    jobList = Job.objects.all()  # fetch data ==> model queryset
+
+    ##filters
+
+    myfilter = JobFilter(request.GET, queryset=jobList)
+    jobList = myfilter.qs
+
 
     paginator = Paginator(jobList, 3)  # Show 25 contacts per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     # print(jobList)
-    context={
-        'jobs':page_obj
-
+    context = {
+        'jobs': page_obj ,
+        'myfilter': myfilter
     }
 
-    return render(request,'job/jobList.html',context)
+    return render(request, 'job/jobList.html', context)
 
 
-def jobDetail(request , slug):
+def jobDetail(request, slug):
     jobDetail = Job.objects.get(slug=slug)  # fetch data ==> model queryset
     # print(jobDetail)
-    if request.method=='POST':
-        form = ApplyForm(request.POST,request.FILES)
+    if request.method == 'POST':
+        form = ApplyForm(request.POST, request.FILES)
         print("inside post")
         if form.is_valid():
             myform = form.save(commit=False)
             myform.job = jobDetail
             myform = form.save()
-    else :
+    else:
         form = ApplyForm()
     context = {
         'job': jobDetail,
         'form1': form
     }
-    return render(request,'job/jobDetail.html',context)
+    return render(request, 'job/jobDetail.html', context)
 
 
 @login_required
 def addJob(request):
-
-    if request.method=='POST':
-        form = JobForm(request.POST,request.FILES)
+    if request.method == 'POST':
+        form = JobForm(request.POST, request.FILES)
         if form.is_valid():
             myform = form.save(commit=False)
             myform.owner = request.user
             myform.save()
             return redirect(reverse('jobs:job_list'))
-    else :
+    else:
         form = JobForm()
     context = {
-        'form2':form,
+        'form2': form,
     }
-    return  render(request,'job/add_job.html',context)
+    return render(request, 'job/add_job.html', context)
