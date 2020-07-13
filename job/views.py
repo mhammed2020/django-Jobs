@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
@@ -42,6 +43,7 @@ def jobDetail(request , slug):
     return render(request,'job/jobDetail.html',context)
 
 
+@login_required
 def addJob(request):
 
     if request.method=='POST':
